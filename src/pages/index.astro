@@ -3,18 +3,21 @@ import PList from '../components/PList';
 import Layout from '../layouts/Layout.astro';
 import PListA from '../components/PListA.astro';
 import Dummy from '../components/Dummy';
+import Filter from '../components/Filter';
 
 const response = await fetch('http://localhost:5555/cep-tel');
 if (!response.ok) {
   throw new Error(`Failed to fetch data: ${response.statusText}`);
 }
-const data = await response.json();
-const metadata = data.result.metadata;
+const initialData = await response.json();
+let data = initialData;
+const metadata = initialData.result.metadata;
 ---
 
 <Layout>
 <!-- 	<PListA data={data} /> -->
-  <Dummy client:load metadata={metadata} />
+<!--   <Dummy client:load metadata={metadata} /> -->
+  <Filter client:load onFilter={(newData: any) => { data = newData }} />
   <PList data={data} />
 
 </Layout>
