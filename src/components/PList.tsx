@@ -1,12 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 
 function PList({data}: any) {    
-  useEffect(() => {
-    console.log("Hello")
-  }, []);
     return (
-        <div className="product-list">
+        <div id='plist' className="product-list">
           <h2>{data.result.category.horizontalProductListContainer.top[0].title}</h2>
           <div className="product-container">
             {data.result.category.horizontalProductListContainer.top[0].pgList.map((item, index) => (
