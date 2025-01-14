@@ -7,7 +7,7 @@ function PList({data}: any) {
   }, []);
     return (
         <div className="product-list">
-          <h2>İkinci El Cep Telefonu Fırsatları</h2>
+          <h2>{data.result.category.horizontalProductListContainer.top[0].title}</h2>
           <div className="product-container">
             {data.result.category.horizontalProductListContainer.top[0].pgList.map((item, index) => (
               <div className="product" key={index}>
