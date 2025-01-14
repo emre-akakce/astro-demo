@@ -1,0 +1,19 @@
+---
+import PList from '../components/PList';
+import Layout from '../layouts/Layout.astro';
+import PListA from '../components/PListA.astro';
+
+const response = await fetch('http://localhost:5555/cep-tel');
+if (!response.ok) {
+  throw new Error(`Failed to fetch data: ${response.statusText}`);
+}
+const data = await response.json();
+
+---
+
+<Layout>
+<!-- 	<PListA data={data} /> -->
+
+  <PList data={data} />
+
+</Layout>

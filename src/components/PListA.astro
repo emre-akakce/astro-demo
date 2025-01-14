@@ -1,0 +1,16 @@
+---
+const {data} = Astro.props;
+---
+<>
+{data.result.category.horizontalProductListContainer.top[0].pgList.map((item: any) => (
+    <div class="product">
+        <img src={item.imageUrl} alt={item.product} />
+        <div class="product-details">
+            <h3>{item.product}</h3>
+            <p><strong>Fiyat:</strong> {item.price}</p>
+            <p><strong>Satıcı:</strong> {item.merchant}</p>
+            <a href={item.url} target="_blank">Ürüne Git</a>
+        </div>
+    </div>
+))}
+</>
