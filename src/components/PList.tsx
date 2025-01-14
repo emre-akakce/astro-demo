@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+
 
 function PList({data}: any) {    
+  useEffect(() => {
+    console.log("Hello")
+  }, []);
     return (
         <div className="product-list">
           <h2>İkinci El Cep Telefonu Fırsatları</h2>
