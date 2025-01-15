@@ -1,0 +1,8 @@
+---
+const response = await fetch('http://localhost:5555/seotext');
+const data = await response.text();
+---
+
+<div id="ctBLA_w" class="rw_v8">
+    <article id="ctBLA" set:html={data}></article>
+</div>

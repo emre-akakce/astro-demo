@@ -4,6 +4,7 @@ import Layout from '../layouts/Layout.astro';
 import PListA from '../components/PListA.astro';
 import Dummy from '../components/Dummy';
 import Filter from '../components/Filter';
+import SeoText from '../components/SeoText.astro';
 
 const response = await fetch('http://localhost:5555/cep-tel');
 if (!response.ok) {
@@ -19,5 +20,5 @@ const metadata = initialData.result.metadata;
 <!--   <Dummy client:load metadata={metadata} /> -->
   <Filter client:load onFilter={(newData: any) => { data = newData }} />
   <PList data={data} />
-
+    <SeoText />
 </Layout>
