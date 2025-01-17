@@ -1,6 +1,6 @@
 import { defineMiddleware } from "astro:middleware";
 import { brotliCompressSync, deflateSync, gzipSync } from "node:zlib";
-
+//https://github.com/sondr3/astro-compressor/issues/13
 export const onRequest = defineMiddleware(async (context, next) => {
   const response = await next();
   const html = await response.text();
