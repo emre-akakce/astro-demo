@@ -1,0 +1,13 @@
+---
+import "../components/Hpl.css"
+const url = "http://localhost:3001/api/get-hpl";
+const response = await Promise.all(Array.from({ length: 5 }).map(() => fetch(url)));
+const html = await Promise.all(response.map((res) => res.text()));
+export const prerender = false
+---
+
+<div class="p-6">
+    <h1 class="text-2xl font-bold mb-4">Featured Products</h1>
+    <Fragment set:html={html} />
+
+</div>
