@@ -1,0 +1,48 @@
+---
+import type { Product } from "../components/Hpl";
+import HorizontalProductList from "../components/Hpl";
+
+const exampleProducts: Product[] = [
+  {
+    id: 1,
+    name: "Product 1",
+    price: 29.99,
+    discountPrice: 24.99,
+    imageUrl: "https://cdn.akakce.com/x/xiaomi/xiaomi-redmi-note-13-pro.jpg",
+    isNew: true,
+    isBestSeller: false,
+  },
+  {
+    id: 2,
+    name: "Product 2",
+    price: 39.99,
+    imageUrl: "https://cdn.akakce.com/x/xiaomi/xiaomi-redmi-note-13-pro.jpg",
+    isBestSeller: true,
+  },
+  {
+    id: 3,
+    name: "Product 3",
+    price: 49.99,
+    discountPrice: 44.99,
+    imageUrl: "https://cdn.akakce.com/x/xiaomi/xiaomi-redmi-note-13-pro.jpg",
+    isNew: true,
+    isBestSeller: true,
+  },
+  {
+    id: 4,
+    name: "Product 4",
+    price: 49.99,
+    imageUrl: "https://cdn.akakce.com/x/xiaomi/xiaomi-redmi-note-13-pro.jpg",
+  },
+];
+export const prerender = false
+---
+
+<div class="p-6">
+    <h1 class="text-2xl font-bold mb-4">Featured Products</h1>
+    <HorizontalProductList products={exampleProducts} />
+    <HorizontalProductList products={exampleProducts} />
+    <HorizontalProductList products={exampleProducts} />
+    <HorizontalProductList products={exampleProducts} />
+    <HorizontalProductList products={exampleProducts} />
+</div>
