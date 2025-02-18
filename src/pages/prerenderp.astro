@@ -1,0 +1,17 @@
+---
+import "../components/Hpl.css"
+const url = "http://localhost:5015/fetch-hpl";
+//make a request to the endpoint 1 time
+const response = await fetch(url);
+//get the response as json
+const json = await response.json();
+//get the html from the json
+const html = json.components;
+export const prerender = false
+---
+
+<div class="p-6">
+    <h1 class="text-2xl font-bold mb-4">Featured Products</h1>
+    <Fragment set:html={html} />
+
+</div>
