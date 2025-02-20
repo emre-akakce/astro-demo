@@ -1,13 +1,109 @@
 ---
+import Layout from "../layouts/Layout.astro";
 const url = "http://localhost:5195";
 const response = await fetch(url);
 const json = await response.json();
 const length = 100;
+export const prerender = false;
 ---
 
-{Array.from({ length }, (_, i) => (
+<Layout>
+    <style is:inline>
+        /* Container Styling */
+        .hpl-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
 
-    <Fragment set:html={json[`html${i}`]} />
+        /* Heading */
+        .hpl-container h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 15px;
+        }
 
-))}
+        /* Shop Now Button */
+        .hpl-container .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
 
+        .hpl-container .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* List Styling */
+        .hpl-container ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* List Item */
+        .hpl-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: white;
+            margin-bottom: 10px;
+        }
+
+        .hpl-item img {
+            width: 100px;
+            height: auto;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+
+        /* Lazy Loaded Image */
+        .hpl-item img[data-src] {
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .hpl-item img[data-src].loaded {
+            opacity: 1;
+        }
+
+        /* Details Section */
+        .details {
+            flex: 1;
+        }
+
+        .details img {
+            width: 50px;
+            height: auto;
+            margin-bottom: 5px;
+        }
+
+        .details a {
+            font-size: 18px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .details a:hover {
+            text-decoration: underline;
+        }
+
+        .details p {
+            margin: 5px 0;
+            color: #555;
+            font-size: 14px;
+        }
+    </style>
+    {Array.from({ length }, (_, i) => <Fragment set:html={json[`html${i}`]} />)}
+</Layout>
