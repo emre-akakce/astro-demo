@@ -1,0 +1,13 @@
+---
+const url = "http://localhost:5195";
+const response = await fetch(url);
+const json = await response.json();
+const length = 100;
+---
+
+{Array.from({ length }, (_, i) => (
+
+    <Fragment set:html={json[`html${i}`]} />
+
+))}
+
